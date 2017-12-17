@@ -1,3 +1,7 @@
+<?php
+ob_start();
+include 'final_header.php';
+?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +18,19 @@ body {
 }
 
 #regForm {
-  background-color: #ffffff;
-  margin: 100px auto;
-  font-family: Raleway;
-  padding: 40px;
-  width: 40%;
-  min-width: 300px;
+ background-color: #ffffff;
+    margin: 25px auto;
+    font-family: Raleway;
+    padding: 24px;
+    width: 50%;
+    min-width: 300px;
+        margin-bottom: 72px;
 }
 
-h1 {
+h2 {
   text-align: center;
+  margin: 0 0 0px 0 !important;
+  color: #006552;
 }
 
 input {
@@ -39,6 +46,7 @@ select {
   font-size: 17px;
   font-family: Raleway;
   border: 1px solid #aaaaaa;
+  color: #006552;
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -52,7 +60,7 @@ input.invalid {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #006552;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -94,7 +102,7 @@ button:hover {
 <body>
 
 <form id="regForm" action="lib/user_verified.php">
-  <h1>Basic Information:</h1>
+  <h2>Basic Information:</h2>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
     <p><input type="text" placeholder="First name" oninput="this.className = ''" name="fname"></p>
@@ -147,6 +155,10 @@ button:hover {
     <p>Term And Condition All Fill:<input style="margin-bottom:30px !important; height: 20px; width: 40px;" class="high" placeholder="Privacy..." oninput="this.className = ''" name="privacy" type="checkbox"></p>
   </div>
   <div style="overflow:auto;">
+    <div style="float:left;">
+      <button type="button" id="skip" onclick="skipbtn();">Skip</button>
+
+    </div>
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
@@ -160,8 +172,21 @@ button:hover {
     <span class="step"></span>
   </div>
 </form>
-
+<style>
+#prevBtn {
+    background-color: #006552 !important;
+}
+#skip
+{
+  color: #ffffff;
+  background-color: #006552 !important;
+}
+  </style>
 <script>
+function skipbtn()
+{
+  window.location.href="index.php?curr=<?php echo base64_encode('inrw')?>";
+}
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
@@ -244,6 +269,9 @@ function fixStepIndicator(n) {
     populateCountries("country", "state");
     populateCountries("country2");
 </script> -->
+<?php
+    include 'footer.php';
+?>
 
 </body>
 </html>
