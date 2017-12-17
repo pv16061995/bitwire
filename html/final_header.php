@@ -194,7 +194,6 @@ function closeMarketNav() {
                   <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href=""><i class="fa fa-user" aria-hidden="true"></i> <?php echo $user_email; ?></a>
                   <a class="dropdown-item" href="setting.php"><i class="fa fa-lock" aria-hidden="true"></i> Setting</a>
-                  <a class="dropdown-item" href="kyc_verification.php"><i class="fa fa-lock" aria-hidden="true"></i> Setting</a>
                   <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 
                   </div>

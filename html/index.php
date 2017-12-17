@@ -23,73 +23,73 @@ $context = stream_context_create(array(
 
   if(isset($_GET['curr']))
   {
-    
+
 $currencyname=base64_decode($_GET['curr']);
 
   switch ($currencyname) {
     case 'inrw':
-      
+
                $response = file_get_contents($url_api.'/INRW/getTxsListINRW', false, $context);
         break;
         case 'eurw':
-      
+
              $response = file_get_contents($url_api.'/EURW/getTxsListEURW', false, $context);
         break;
         case 'usdw':
          $response = file_get_contents($url_api.'/USDW/getTxsListUSDW', false, $context);
         break;
-        
+
         case 'gbpw':
          $response = file_get_contents($url_api.'/GBPW/getTxsListGBPW', false, $context);
-       
+
         break;
-        
+
         case 'brlw':
          $response = file_get_contents($url_api.'/BRLW/getTxsListBRLW', false, $context);
-     
+
         break;
-        
+
         case 'plnw':
          $response = file_get_contents($url_api.'/PLNW/getTxsListPLNW', false, $context);
-             
+
         break;
-        
+
         case 'cadw':
-       
+
         $response = file_get_contents($url_api.'/CADW/getTxsListCADW', false, $context);
         break;
-        
+
         case 'tryw':
         $response = file_get_contents($url_api.'/TRYW/getTxsListTRYW', false, $context);
         break;
-        
+
         case 'rubw':
         $response = file_get_contents($url_api.'/RUBW/getTxsListRUBW', false, $context);
         break;
-        
+
         case 'mxnw':
         $response = file_get_contents($url_api.'/MXNW/getTxsListMXNW', false, $context);
          break;
         case 'czkw':
          $response = file_get_contents($url_api.'/CZKW/getTxsListCZKW', false, $context);
         break;
-        
+
         case 'ilsw':
          $response = file_get_contents($url_api.'/ILSW/getTxsListILSW', false, $context);
         break;
-        
+
         case 'nzdw':
         $response = file_get_contents($url_api.'/NZDW/getTxsListNZDW', false, $context);
         break;
-        
+
         case 'jpyw':
          $response = file_get_contents($url_api.'/JPYW/getTxsListJPYW', false, $context);
         break;
-        
+
         case 'sekw':
         $response = file_get_contents($url_api.'/SEKW/getTxsListSEKW', false, $context);
         break;
-        
+
         case 'audw':
         $response = file_get_contents($url_api.'/AUDW/getTxsListAUDW', false, $context);
         break;
@@ -97,7 +97,7 @@ $currencyname=base64_decode($_GET['curr']);
    default:
               $currencyname='inrw';
                $response = file_get_contents($url_api.'/INRW/getTxsListINRW', false, $context);
-        
+
 
 
   }
@@ -116,29 +116,30 @@ include 'final_header.php';
 ?>
 
   <div class="app-body" style="margin-bottom: 10%;">
-        
+
 
         <!-- Main content -->
         <main class="main" style="margin-bottom: 48px;">
          <div class="row balance-div">
             <div class="col-md-10">
-                
-                <a class="btn" href="sendget.php?curr=<?php echo base64_encode(@$currencyname);?>" id="btnsend"><i class="fa fa-sign-out"></i> Send <?= strtoupper(@$currencyname); ?></a>
-                <a class="btn" href="address.php?curr=<?php echo base64_encode(@$currencyname);?>" id="btnreceived"><i class="fa fa-sign-in"></i> Receive <?= strtoupper(@$currencyname); ?></a>
-                <a class="btn" href="fundstransaction.php?curr=<?php echo base64_encode(@$currencyname);?>"><i class="fa fa-sign-in"></i> Transactions <?= strtoupper(@$currencyname); ?></a>
-                 <a class="btn" href="deposit.php?curr=<?php echo base64_encode(@$currencyname);?>"><i class="fa fa-sign-in"></i> Get <?=strtoupper(substr(@$currencyname,0,3)); ?></a>
-            </div>
-            
+
+                              <a class="btn" href="sendget.php?curr=<?php echo base64_encode($currencyname);?>" id="btnsend"><i class="fa fa-sign-out"></i> Send<?= strtoupper($currencyname); ?></a>
+                              <a class="btn" href="address.php?curr=<?php echo base64_encode($currencyname);?>" id="btnreceived"><i class="fa fa-sign-in"></i> Receive <?= strtoupper($currencyname); ?></a>
+                              <a class="btn" href="fundstransaction.php?curr=<?php echo base64_encode($currencyname);?>"><i class="fa fa-sign-in"></i> Transactions <?= strtoupper($currencyname); ?></a>
+                               <a class="btn" href="deposit.php?curr=<?php echo base64_encode($currencyname);?>"><i class="fa fa-sign-in"></i> Deposit <?= strtoupper(substr($currencyname,0,3)); ?></a>
+                               <a class="btn" href="withdraw.php?curr=<?php echo base64_encode($currencyname);?>"><i class="fa fa-sign-in"></i> Withdraw <?= strtoupper(substr($currencyname,0,3));  ?></a>
+                                   </div>
+
         </div>
 
-      
+
 <style type="text/css">
   .tablestyle
   {
     border: 1px solid #343434;
   }
-  
-  
+
+
   .tab-content{
     border:none;
   }
@@ -149,7 +150,7 @@ include 'final_header.php';
 
   <div class="container-fluid">
    <div class="animated fadeIn">
-    
+
      <div class="col-md-12"><!-- All Sent Received Transferred -->
    <h3 class="text-center font-custom">YOUR <?= strtoupper(@$currencyname); ?> TRANSACTIONS</h3>
    <div class="tablestyle">
@@ -308,7 +309,7 @@ include 'final_header.php';
 
 </main>
 
-       
+
 
 
     </div>
