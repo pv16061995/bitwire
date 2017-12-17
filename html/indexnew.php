@@ -39,6 +39,10 @@
              background: #006552;
              color: #fff;
          }
+         .btn {
+            color: #046250 ;
+
+         }
       </style>
    </head>
    <body data-spy="scroll" data-target=".inner-link" data-offset="60" data-gr-c-s-loaded="true">
